@@ -11,17 +11,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 
-import com.example.a3.MainActivity;
-import com.example.a3.R;
-import com.example.a3.databinding.ActivityMainBinding;
+import com.example.a3.MeetingObject;
 import com.example.a3.databinding.AddMeetingFragmentBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.textfield.TextInputLayout;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 
 public class AddMeetingFragment extends Fragment {
 
@@ -47,7 +43,28 @@ public class AddMeetingFragment extends Fragment {
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 addMeetingViewModel.meetingTitle = binding.meetingInput.getText().toString();
+                //setting data
+                addMeetingViewModel.meetingIndex++;
+                addMeetingViewModel.meetingTitle = binding.meetingInput.getText().toString();
+                addMeetingViewModel.meetingDesc = binding.descEditText.getText().toString();
+
+                try {
+                    Class meetingClass = Class.forName("com.example.a3.MeetingObject");
+                    Object meeting = meetingClass.getConstructor(String.class, String.class).newInstance(addMeetingViewModel.meetingTitle, addMeetingViewModel.meetingDesc);
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (java.lang.InstantiationException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         });
 

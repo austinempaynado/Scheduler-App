@@ -11,11 +11,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.example.a3.MainActivity;
 import com.example.a3.R;
 import com.example.a3.add.AddMeetingViewModel;
 import com.example.a3.databinding.MeetingsListFragmentBinding;
@@ -48,18 +51,23 @@ public class MeetingsListFragment extends Fragment {
         View root = binding.getRoot();
         //end of declarations
 
+        //Add meeting to list
         if(addMeetingViewModel.meetingTitle !=null){
-            //Add meeting
             mViewModel.listItems.add(addMeetingViewModel.meetingTitle);
             addMeetingViewModel.meetingIndex++;
         }
-
         ArrayAdapter<String>adapter=new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_list_item_1,
                 mViewModel.listItems);
-
-
+        //Updating the list view using array adapter
         binding.MeetingsListView.setAdapter(adapter);
+
+        binding.MeetingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(root.getContext(), "Clicked on #" + i, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

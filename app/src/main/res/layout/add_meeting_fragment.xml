@@ -55,6 +55,78 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/meetingInputLayout"/>
+
+                <TextView
+                    android:id="@+id/CategoryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/Category"
+                    android:textSize="@dimen/h1"
+                    android:layout_marginTop="@dimen/seperator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+                <Spinner
+                    android:id="@+id/CategorySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:entries="@array/Categories"
+                    android:minHeight="48dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CategoryLabel" />
+
+                <TextView
+                    android:id="@+id/descLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/DescriptionLabel"
+                    android:textSize="@dimen/h1"
+                    android:layout_marginLeft="@dimen/seperator"
+                    android:layout_marginTop="@dimen/seperator"
+                    app:layout_constraintTop_toBottomOf="@+id/CategorySpinner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/descTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/descLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="@dimen/seperator"
+                    android:layout_marginRight="@dimen/seperator">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/descEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/descHint"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapWords" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <Button
                     android:id="@+id/save_button"
                     android:layout_width="wrap_content"
@@ -67,7 +139,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/meetingInputLayout" />
+                    app:layout_constraintTop_toBottomOf="@id/descTextInputLayout" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
