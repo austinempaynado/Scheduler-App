@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ import android.widget.TextView;
 import com.example.a3.R;
 import com.example.a3.add.AddMeetingViewModel;
 import com.example.a3.databinding.MeetingsListFragmentBinding;
+
+import java.util.ArrayList;
 
 public class MeetingsListFragment extends Fragment {
 
@@ -27,7 +30,7 @@ public class MeetingsListFragment extends Fragment {
     //add meeting constants
     private AddMeetingViewModel addMeetingViewModel;
 
-    private TextView test;
+    ArrayList<String> listItems = new ArrayList<String>();
 
     public static MeetingsListFragment newInstance() {
         return new MeetingsListFragment();
@@ -37,15 +40,24 @@ public class MeetingsListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        //Declarations
         addMeetingViewModel =
                 new ViewModelProvider(getActivity()).get(AddMeetingViewModel.class);
 
         binding = MeetingsListFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        //end of declarations
 
-        test = binding.test;
+        //Array Adapter
+        listItems.add(addMeetingViewModel.meetingTitle);
 
-        test.setText(addMeetingViewModel.meetingTitle);
+        ArrayAdapter<String>adapter=new ArrayAdapter<String>(this.getActivity(),
+                android.R.layout.simple_list_item_1,
+                listItems);
+
+        binding.MeetingsListView.setAdapter(adapter);
+
+
 
         return root;
     }
