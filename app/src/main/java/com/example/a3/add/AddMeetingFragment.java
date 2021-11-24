@@ -16,9 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-
+import com.example.a3.MainActivity;
 import com.example.a3.R;
+import com.example.a3.databinding.ActivityMainBinding;
 import com.example.a3.databinding.AddMeetingFragmentBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class AddMeetingFragment extends Fragment {
@@ -39,6 +41,8 @@ public class AddMeetingFragment extends Fragment {
 
         binding = AddMeetingFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        addMeetingViewModel.meetingTitle = null;
 
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

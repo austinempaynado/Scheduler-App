@@ -30,8 +30,6 @@ public class MeetingsListFragment extends Fragment {
     //add meeting constants
     private AddMeetingViewModel addMeetingViewModel;
 
-    ArrayList<String> listItems = new ArrayList<String>();
-
     public static MeetingsListFragment newInstance() {
         return new MeetingsListFragment();
     }
@@ -43,17 +41,23 @@ public class MeetingsListFragment extends Fragment {
         //Declarations
         addMeetingViewModel =
                 new ViewModelProvider(getActivity()).get(AddMeetingViewModel.class);
+        mViewModel =
+                new ViewModelProvider(getActivity()).get(MeetingsListViewModel.class);
 
         binding = MeetingsListFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         //end of declarations
 
-        //Array Adapter
-        listItems.add(addMeetingViewModel.meetingTitle);
+        if(addMeetingViewModel.meetingTitle !=null){
+            //Add meeting
+            mViewModel.listItems.add(addMeetingViewModel.meetingTitle);
+            addMeetingViewModel.meetingIndex++;
+        }
 
         ArrayAdapter<String>adapter=new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_list_item_1,
-                listItems);
+                mViewModel.listItems);
+
 
         binding.MeetingsListView.setAdapter(adapter);
 
