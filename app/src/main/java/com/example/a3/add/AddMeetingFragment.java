@@ -15,17 +15,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 import com.example.a3.R;
 import com.example.a3.databinding.AddMeetingFragmentBinding;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class AddMeetingFragment extends Fragment {
 
-    private AddMeetingViewModel mViewModel;
+    private AddMeetingViewModel addMeetingViewModel;
     private AddMeetingFragmentBinding binding;
-
-    private EditText MeetingTitle;
-    private String MeetingTitleText;
-    private Button SaveButton;
 
     public static AddMeetingFragment newInstance() {
         return new AddMeetingFragment();
@@ -35,16 +34,16 @@ public class AddMeetingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        addMeetingViewModel =
+                new ViewModelProvider(getActivity()).get(AddMeetingViewModel.class);
+
         binding = AddMeetingFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        SaveButton = binding.saveButton;
-
-        SaveButton.setOnClickListener(new View.OnClickListener() {
+        binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 MeetingTitleText = MeetingTitle.getText().toString();
-                 mViewModel.meetingTitle= MeetingTitleText;
+                 addMeetingViewModel.meetingTitle = binding.meetingInput.getText().toString();
             }
         });
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 import com.example.a3.R;
@@ -25,6 +26,8 @@ public class MeetingsListFragment extends Fragment {
 
     //add meeting constants
     private AddMeetingViewModel addMeetingViewModel;
+
+    private TextView test;
 
     public static MeetingsListFragment newInstance() {
         return new MeetingsListFragment();
@@ -40,7 +43,9 @@ public class MeetingsListFragment extends Fragment {
         binding = MeetingsListFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        test = binding.test;
 
+        test.setText(addMeetingViewModel.meetingTitle);
 
         return root;
     }
