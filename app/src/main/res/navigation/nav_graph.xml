@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addMeetingFragment">
 
+    <fragment
+        android:id="@+id/addMeetingFragment"
+        android:name="com.example.a3.add.AddMeetingFragment"
+        android:label="add_meeting_fragment"
+        tools:layout="@layout/add_meeting_fragment" >
+        <action
+            android:id="@+id/action_addMeetingFragment_to_meetingsListFragment"
+            app:destination="@id/meetingsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/meetingsListFragment"
+        android:name="com.example.a3.meetingsList.MeetingsListFragment"
+        android:label="meetings_list_fragment"
+        tools:layout="@layout/meetings_list_fragment" />
 </navigation>
