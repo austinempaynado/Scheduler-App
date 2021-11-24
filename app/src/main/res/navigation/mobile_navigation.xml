@@ -2,21 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/addMeetingFragment">
-
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_add">
     <fragment
-        android:id="@+id/addMeetingFragment"
+        android:id="@+id/navigation_add"
         android:name="com.example.a3.add.AddMeetingFragment"
-        android:label="add_meeting_fragment"
-        tools:layout="@layout/add_meeting_fragment" >
+        android:label="Add a meeting"
+        tools:layout="@layout/add_meeting_fragment">
         <action
-            android:id="@+id/action_addMeetingFragment_to_meetingsListFragment"
-            app:destination="@id/meetingsListFragment" />
+            android:id="@+id/action_navigation_add_to_navigation_list"
+            app:destination="@id/navigation_list" />
     </fragment>
     <fragment
-        android:id="@+id/meetingsListFragment"
+        android:id="@+id/navigation_list"
         android:name="com.example.a3.meetingsList.MeetingsListFragment"
-        android:label="meetings_list_fragment"
+        android:label="Overview"
         tools:layout="@layout/meetings_list_fragment" />
 </navigation>
