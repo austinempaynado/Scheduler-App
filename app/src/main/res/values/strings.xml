@@ -11,6 +11,10 @@
     <string name="Category">Category</string>
     <string name="DescriptionLabel">Description</string>
     <string name="descHint">Enter a description</string>
+    <string name="date1">Start Date</string>
+    <string name="date2">End Date</string>
+    <string name="time1">Start Time</string>
+    <string name="time2">End Time</string>
 
     <string-array name="Categories">
         <item>Personal</item>

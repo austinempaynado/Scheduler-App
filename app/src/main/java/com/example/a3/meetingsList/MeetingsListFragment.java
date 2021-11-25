@@ -62,8 +62,6 @@ public class MeetingsListFragment extends Fragment {
         binding.MeetingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
                 //description
                 Toast.makeText(root.getContext(), addMeetingViewModel.Meetings.get(i).getDescription(), Toast.LENGTH_SHORT).show();
             }
