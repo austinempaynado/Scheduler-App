@@ -163,6 +163,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/descTextInputLayout">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/timeEditText1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#FFFFFF"
@@ -210,6 +211,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/time_1">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/timeEditText2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#FFFFFF"
