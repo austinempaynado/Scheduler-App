@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.a3.MainActivity;
+import com.example.a3.Meeting;
 import com.example.a3.R;
 import com.example.a3.add.AddMeetingViewModel;
 import com.example.a3.databinding.MeetingsListFragmentBinding;
@@ -51,21 +52,20 @@ public class MeetingsListFragment extends Fragment {
         View root = binding.getRoot();
         //end of declarations
 
-        //Add meeting to list
-        if(addMeetingViewModel.meetingTitle !=null){
-            mViewModel.listItems.add(addMeetingViewModel.meetingTitle);
-            addMeetingViewModel.meetingIndex++;
-        }
-        ArrayAdapter<String>adapter=new ArrayAdapter<String>(this.getActivity(),
+        ArrayAdapter<Meeting>adapter=new ArrayAdapter<Meeting>(this.getActivity(),
                 android.R.layout.simple_list_item_1,
-                mViewModel.listItems);
+                addMeetingViewModel.Meetings);
+
         //Updating the list view using array adapter
         binding.MeetingsListView.setAdapter(adapter);
 
         binding.MeetingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(root.getContext(), "Clicked on #" + i, Toast.LENGTH_SHORT).show();
+
+
+                //description
+                Toast.makeText(root.getContext(), addMeetingViewModel.Meetings.get(i).getDescription(), Toast.LENGTH_SHORT).show();
             }
         });
 

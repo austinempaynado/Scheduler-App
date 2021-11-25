@@ -13,16 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.example.a3.MeetingObject;
+import com.example.a3.Meeting;
 import com.example.a3.databinding.AddMeetingFragmentBinding;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 
 public class AddMeetingFragment extends Fragment {
 
+
     private AddMeetingViewModel addMeetingViewModel;
     private AddMeetingFragmentBinding binding;
+
 
     public static AddMeetingFragment newInstance() {
         return new AddMeetingFragment();
@@ -38,33 +37,11 @@ public class AddMeetingFragment extends Fragment {
         binding = AddMeetingFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        addMeetingViewModel.meetingTitle = null;
-
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //setting data
-                addMeetingViewModel.meetingIndex++;
-                addMeetingViewModel.meetingTitle = binding.meetingInput.getText().toString();
-                addMeetingViewModel.meetingDesc = binding.descEditText.getText().toString();
-
-                try {
-                    Class meetingClass = Class.forName("com.example.a3.MeetingObject");
-                    Object meeting = meetingClass.getConstructor(String.class, String.class).newInstance(addMeetingViewModel.meetingTitle, addMeetingViewModel.meetingDesc);
-
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (java.lang.InstantiationException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-
-
+                addMeetingViewModel.Meetings.add(new Meeting(binding.meetingInput.getText().toString(), binding.descEditText.getText().toString()));
             }
         });
 

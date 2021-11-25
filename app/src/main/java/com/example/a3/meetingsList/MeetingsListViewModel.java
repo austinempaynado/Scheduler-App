@@ -8,5 +8,4 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 
 public class MeetingsListViewModel extends ViewModel {
-    ArrayList<String> listItems = new ArrayList<String>();
 }
