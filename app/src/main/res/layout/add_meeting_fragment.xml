@@ -92,6 +92,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/CategoryLabel" />
 
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CategorySpinner"/>
+
                 <TextView
                     android:id="@+id/descLabel"
                     android:layout_width="wrap_content"
@@ -100,7 +110,7 @@
                     android:textSize="@dimen/h1"
                     android:layout_marginLeft="@dimen/seperator"
                     android:layout_marginTop="@dimen/seperator"
-                    app:layout_constraintTop_toBottomOf="@+id/CategorySpinner"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
@@ -110,11 +120,12 @@
                     android:id="@+id/descTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/descLabel"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginLeft="@dimen/seperator"
-                    android:layout_marginRight="@dimen/seperator">
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="@dimen/seperator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/descEditText"
@@ -198,6 +209,7 @@
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/time_2"
                     android:layout_width="150dp"
@@ -221,6 +233,120 @@
                         android:focusableInTouchMode="false"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_2"/>
+
+                <TextView
+                    android:id="@+id/LocationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/LocationLabel"
+                    android:textSize="@dimen/h1"
+                    android:layout_marginTop="@dimen/seperator"
+                    android:layout_marginLeft="@dimen/seperator"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider3"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/LocationTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/seperator"
+                    android:layout_marginRight="@dimen/seperator"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/LocationLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/locationHint"
+                        android:inputType="textCapWords" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/LocationTextInputLayout"/>
+
+                <TextView
+                    android:id="@+id/AttendeesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AttendeesLabel"
+                    android:textSize="@dimen/h1"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4"
+                    android:layout_marginTop="@dimen/seperator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:layout_marginLeft="24dp"/>
+
+                <GridLayout
+                    android:id="@+id/attendeesList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="411dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AttendeesLabel"/>
+
+                <Button
+                    android:id="@+id/addAttendeesButton"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:text="@string/add"
+                    app:layout_constraintTop_toBottomOf="@+id/attendeesList"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:layout_marginLeft="@dimen/seperator"
+                    android:layout_marginTop="12dp"
+                    />
+
+                <TextView
+                    android:id="@+id/ReminderLabel"
+                    android:text="@string/ReminderLabel"
+                    android:textSize="@dimen/h1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toStartOf="@+id/ReminderSpinner"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addAttendeesButton" />
+
+                <Spinner
+                    android:id="@+id/ReminderSpinner"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/seperator"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/Reminders"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ReminderLabel" />
+
                 <Button
                     android:id="@+id/save_button"
                     android:layout_width="wrap_content"
@@ -233,9 +359,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/date_2" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/ReminderSpinner" />
 
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 

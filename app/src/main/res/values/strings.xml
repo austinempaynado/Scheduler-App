@@ -15,10 +15,23 @@
     <string name="date2">End Date</string>
     <string name="time1">Start Time</string>
     <string name="time2">End Time</string>
+    <string name="AttendeesLabel">Attendees</string>
+    <string name="locationHint">Enter a location</string>
+    <string name="add">Add</string>
+    <string name="LocationLabel">Location</string>
+    <string name="ReminderLabel">Reminder</string>
 
     <string-array name="Categories">
         <item>Personal</item>
         <item>School</item>
         <item>Work</item>
+    </string-array>
+
+    <string-array name="Reminders">
+        <item>5 minutes before</item>
+        <item>15 minutes before</item>
+        <item>30 minutes before</item>
+        <item>1 hour before</item>
+        <item>Custom time</item>
     </string-array>
 </resources>
