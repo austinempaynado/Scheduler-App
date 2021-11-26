@@ -1,28 +1,21 @@
 package com.example.a3.add;
 
-import androidx.annotation.RequiresApi;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.a3.MainActivity;
 import com.example.a3.Meeting;
 import com.example.a3.databinding.AddMeetingFragmentBinding;
 
@@ -103,7 +96,10 @@ public class AddMeetingFragment extends Fragment {
                             binding.CategorySpinner.getSelectedItem().toString(),
                             binding.descEditText.getText().toString(),
                             binding.dateEditText1.getText().toString(),
-                            binding.dateEditText2.getText().toString()));
+                            binding.dateEditText2.getText().toString(),
+                            binding.timeEditText1.getText().toString(),
+                            binding.timeEditText2.getText().toString()
+                            ));
             }
         });
 
